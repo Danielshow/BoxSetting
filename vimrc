@@ -7,6 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " ========== autocomplete
+Plugin 'styled-components/vim-styled-components'
 Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'valloric/youcompleteme'
@@ -47,16 +48,45 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+Plugin 'leafgarland/typescript-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'w0rp/ale'
+
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \   'javascript': ['eslint'],
+      \   'vue': ['eslint']
+      \
+      \}
+
+let g:ale_fixers = {
+      \    '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \    'javascript': ['eslint'],
+      \    'vue': ['eslint'],
+      \    'scss': ['prettier']
+      \
+      \}
+
+let g:ale_fix_on_save = 1
+let g:jsx_ext_required = 1
+let g:jsx_pragma_required = 1
+
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+let g:typescript_ignore_browserwords = 1
+let g:typescript_ignore_typescriptdoc = 1
 " vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-" ========== colorschemes 
+" ========== colorschemes
 Plugin 'flazz/vim-colorschemes'
-Plugin 'cakebaker/scss-syntax.vim' 
-Plugin 'craigemery/vim-autotag' 
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'craigemery/vim-autotag'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'michaeljsmith/vim-indent-object'
 
@@ -72,14 +102,14 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'dyng/ctrlsf.vim' " for really nice search results like in sublime
-Plugin 'yonchu/accelerated-smooth-scroll' 
-Plugin 'vim-scripts/IndexedSearch' 
+Plugin 'yonchu/accelerated-smooth-scroll'
+Plugin 'vim-scripts/IndexedSearch'
 Plugin 'itspriddle/vim-jquery'
-Plugin 'tpope/vim-haml' 
+Plugin 'tpope/vim-haml'
 Plugin 'junegunn/goyo.vim'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-bundler' 
+Plugin 'tpope/vim-bundler'
 "========= syntax helpers
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
@@ -108,14 +138,14 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 " ========= file tree
 Plugin  'scrooloose/nerdtree'
-  
+
   let NERDTreeIgnore = [ '__pycache__',  '\.pyc$', '\.o$', '\.swp', '*\.swp', 'node_modules/' ]
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
 " ========= rails
-Plugin 'kchmck/vim-coffee-script' 
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-rails' 
+Plugin 'tpope/vim-rails'
 Plugin 'ngmy/vim-rubocop'
 " ========= navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -139,11 +169,36 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'majutsushi/tagbar'
 Plugin 'wincent/command-t'
-Plugin 'bling/vim-airline'
-  " airline powerline fonts
-  let g:airline_powerline_fonts=1
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+if !exists('g:airline_symbols')
+   let g:airline_symbols = {}
+endif
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.maxlinenr = '㏑'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = 'Ξ'
 
-  
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -173,7 +228,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
-" colorschemes 
+" colorschemes
 " Dark: monokai-chris, gruvbox
 " Light: ChocolatePapaya
 colorscheme gruvbox
@@ -211,7 +266,7 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Folding 
+" Folding
 augroup XML
     autocmd!
     autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0

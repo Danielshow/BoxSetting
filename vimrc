@@ -40,6 +40,9 @@ Plugin 'kana/vim-textobj-user'
 
 "let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 let g:rspec_command = "Dispatch rspec {spec}"
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -171,6 +174,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'wincent/command-t'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'mileszs/ack.vim'
 if !exists('g:airline_symbols')
    let g:airline_symbols = {}
 endif
@@ -207,7 +211,6 @@ syntax on
 
 " tabs to 2 spaces
 " set smartindent
-set background=dark " required by gruvbox
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -231,12 +234,13 @@ augroup END
 " colorschemes
 " Dark: monokai-chris, gruvbox
 " Light: ChocolatePapaya
+Plugin 'morhetz/gruvbox'
 colorscheme gruvbox
   let g:gruvbox_contrast_dark='default'
   let g:gruvbox_contrast_light='default'
 " split below and right feels more natural
 set splitbelow
-
+set background=light
 " no wrapping
 set nowrap
 

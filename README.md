@@ -13,3 +13,6 @@ This Box setting setup my terminal using VIM. Tmux, Item and Zsh
 
 
 ### Hurray, The TERMINAL is yours
+
+#### Tutorial for setting it up
+- [tutorial](https://danielshow.dev/blogs/setting-up-vim-tmux-iterm-and-oh-my-zsh-a-better-workflow)

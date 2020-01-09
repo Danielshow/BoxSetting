@@ -1,6 +1,5 @@
 export ZSH="/Users/danielshotonwa/.oh-my-zsh"
 export PATH="$HOME/.jenv/bin:$PATH"
-export GITJIRA_GIT_ACCESS_TOKEN="6f9dd5b10dc6d4fb1b53b04843e382b84ff9dc04"
 export LC_ALL=en_US.UTF-8
 eval "$(jenv init -)"
 export ES_HOME="~/Documents/project/elasticsearch-7.5.0"

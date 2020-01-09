@@ -1,4 +1,11 @@
 export ZSH="/Users/danielshotonwa/.oh-my-zsh"
+export PATH="$HOME/.jenv/bin:$PATH"
+export GITJIRA_GIT_ACCESS_TOKEN="6f9dd5b10dc6d4fb1b53b04843e382b84ff9dc04"
+export LC_ALL=en_US.UTF-8
+eval "$(jenv init -)"
+export ES_HOME="~/Documents/project/elasticsearch-7.5.0"
+export PATH=$ES_HOME/bin:$PATH
+export FLUXX_LOCAL_CONFIG_NAME=dev-show-unique
 # Use spaceship theme
 
 ZSH_THEME="spaceship"
@@ -58,7 +65,7 @@ SPACESHIP_PROMPT_ORDER=(
   char
   )
   # PROMPT
-   SPACESHIP_CHAR_SYMBOL="➜ "
+   SPACESHIP_CHAR_SYMBOL="➜  "
    SPACESHIP_PROMPT_ADD_NEWLINE=true
    SPACESHIP_PROMPT_SEPARATE_LINE=true
    SPACESHIP_PROMPT_PREFIXES_SHOW=true
@@ -186,14 +193,21 @@ SPACESHIP_PROMPT_ORDER=(
 source $ZSH/oh-my-zsh.sh
 
 # My useful aliases
-alias zshconfig="vim ~/.zshrc"
+alias c="clear"
+alias q="exit"
+alias zsh="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias vimconfig='vim ~/.vimrc'
-alias update="source ~/.zshrc"
-alias pro="cd documents/project/"
-alias opensource="cd documents/project/Open\ Source"
-alias appren="cd /documents/project/Apprehenticeship"
-alias personal="cd /document/project/Personal\ Projects"
+alias vimrc='vim ~/.vimrc'
+alias szsh="source ~/.zshrc"
+alias p="cd ~/document/project/Personal\ Projects"
+alias berm="bundle exec rake db:migrate"
+alias bec="bundle exec rails c"
+alias bes="bundle exec rails s"
+alias bel="bin/elasticsearch"
+alias fluxx="cd ~/Documents/project/Partner/fluxx_flmtg"
+alias es="cd ~/Documents/project/elasticsearch-7.5.0 && bel"
+alias dyn="DYNAMIC_SCHEDULE=true bundle exec rake resque:scheduler"
+alias que="QUEUE=* bundle exec rake resque:work"
 local ret_status="%(?:%{$fg[yellow]%}=> :%{$fg[red]%}=> %s)"
 
 # npm global
@@ -205,3 +219,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/v8@3.15/bin:$PATH"

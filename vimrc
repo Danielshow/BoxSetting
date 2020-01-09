@@ -18,6 +18,9 @@ let mapleader = ","
 " ========= snippets
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
+Plugin 'Yggdroot/indentLine'
+Plugin 'mhinz/vim-startify'
+let g:indentLine_char = '.'
 
 Plugin 'epilande/vim-es2015-snippets'
 Plugin 'epilande/vim-react-snippets'
@@ -71,6 +74,16 @@ let g:ale_fixers = {
       \
       \}
 
+
+" set up ascii for my startify
+let g:startify_custom_header = [
+    \ '________                .__       .__      _________.__',
+    \ '\______ \ _____    ____ |__| ____ |  |    /   _____/|  |__   ______  _ __',
+    \ ' |    |  \\__  \  /    \|  |/ __ \|  |    \_____  \ |  |  \ /  _ \ \/ \/ /',
+    \ ' |    `   \/ __ \|   |  \  \  ___/|  |__  /        \|   Y  (  <_>  )/ `',
+    \ '/_______  (____  /___|  /__|\___  >____/ /_______  /|___|  /\____/\/\_/)',
+    \ '        \/     \/     \/        \/               \/      \/',
+    \ ]
 let g:ale_fix_on_save = 1
 let g:jsx_ext_required = 1
 let g:jsx_pragma_required = 1
@@ -240,7 +253,7 @@ colorscheme gruvbox
   let g:gruvbox_contrast_light='default'
 " split below and right feels more natural
 set splitbelow
-set background=light
+set background=dark
 " no wrapping
 set nowrap
 

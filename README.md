@@ -11,6 +11,8 @@ This Box setting setup my terminal using VIM. Tmux, Item and Zsh
 - Download Vundle
 - Open Vim and run :PluginInstall
 
+### Alias
+Recently I add lot of alias to help me with my work. `zshrc`. you can change them and fill them with yours.
 
 ### Hurray, The TERMINAL is yours
 

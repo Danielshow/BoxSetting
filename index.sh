@@ -1,48 +1,50 @@
 #!/bin/bash
 
 # create backup files
-touch ~/.vimrc.old
-touch ~/.zshrc.old
-touch ~/.tmux.conf.old
+VIMRC_OLD=~/.vimrc.old
+ZSHRC_OLD=~/.zshrc.old
+TMUX_CONF_OLD=~/.tmux.conf.old
 
-# Copy existing files into old-zshrc & old-vimrc
-cp ~/.vimrc ~/.vimrc.old >/dev/null 2>&1
-cp ~/.zshrc ~/.zshrc.old >/dev/null 2>&1
-cp ~/.tmux.conf ~/.tmux.conf.old >/dev/null 2>&1
+touch $VIMRC_OLD
+touch $ZSHRC_OLD
+touch $TMUX_CONF_OLD
 
 # copy new files to replace existing files
 VIMRC=~/.vimrc
 ZSHRC=~/.zshrc
 TMUX_CONF=~/.tmux.conf
 
-if [-f "$VIMRC"]; then
-  cp vimrc ~/.vimrc
+if [ -f "$VIMRC" ]; then
+  cp ~/.vimrc ~/.vimrc.old
+  cp vimrc $VIMRC
 else
   touch ~/.vimrc
   cp vimrc ~/.vimrc
 fi
-if [-f "$ZSHRC"]; then
-  cp zshrc ~/.zshrc
+if [ -f "$ZSHRC" ]; then
+  cp ~/.zshrc ~/.zshrc.old
+  cp zshrc $ZSHRC
 else
   touch ~/.zshrc
   cp zshrc ~/.zshrc
 fi
-if [-f "$TMUX_CONF"]; then
-  cp tmux.comf ~/.tmux.conf
+if [ -f "$TMUX_CONF" ]; then
+  cp ~/.tmux.conf ~/.tmux.conf.old
+  cp tmux.comf $TMUX_CONF
 else
   touch ~/.tmux.conf
   cp tmux.comf ~/.tmux.conf
 fi
 
 # get users system name and and sed -i s/old/new/g replace my name
-if [$# -gt 0]; then
+if [ $# -gt 0 ]; then
   # do something
   sed -i "s/danielshotonwa/$1/g" zshrc
   sed -i "s/danielshotonwa/$1/g" vimrc
 else
   # do another thing
   echo You did not enter your system username
-  exit 1
+  echo Life goes on, try to edit all variations of my name in vimrc
 fi
 
 

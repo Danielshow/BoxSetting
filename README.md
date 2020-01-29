@@ -59,6 +59,13 @@ $ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/t
 - Open Vim and run `:PluginInstall`
 - Hurray 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
 
+### Update
+I added an undo script if you want to go back to your default settings
+```shell
+$ cd Boxsettings
+$ ./undo.sh
+```
+Voila!!!!!🏵
 
 ### Alias
 - I have lot of aliases I used in my `~/.zshrc`. You can delete them and change it to yours.

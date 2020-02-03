@@ -2,11 +2,10 @@ export ZSH="/Users/danielshotonwa/.oh-my-zsh"
 export PATH="$HOME/.jenv/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 eval "$(jenv init -)"
-export ES_HOME="~/Documents/project/elasticsearch-7.5.0"
+export ES_HOME="~/Documents/project/elasticsearch-1.5.2"
 export PATH=$ES_HOME/bin:$PATH
 export FLUXX_LOCAL_CONFIG_NAME=dev-show-unique
 # Use spaceship theme
-
 ZSH_THEME="spaceship"
 autoload -U promptinit; promptinit
 export UPDATE_ZSH_DAYS=1
@@ -192,6 +191,8 @@ SPACESHIP_PROMPT_ORDER=(
 source $ZSH/oh-my-zsh.sh
 
 # My useful aliases
+alias jira="cd ~/Documents/project/gitjira-cli"
+alias prlist='go run *.go pr -s "2019-10-01" -o -c > ~/Documents/project/pr.txt'
 alias c="clear"
 alias q="exit"
 alias zsh="vim ~/.zshrc"
@@ -207,8 +208,10 @@ alias fluxx="cd ~/Documents/project/Partner/fluxx_flmtg"
 alias es="cd ~/Documents/project/elasticsearch-7.5.0 && bel"
 alias dyn="DYNAMIC_SCHEDULE=true bundle exec rake resque:scheduler"
 alias que="QUEUE=* bundle exec rake resque:work"
+alias regex="perldoc perlreref"
 local ret_status="%(?:%{$fg[yellow]%}=> :%{$fg[red]%}=> %s)"
 
+bindkey -v
 # npm global
 export PATH=~/.npm-global/bin:$PATH
 
@@ -221,3 +224,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/v8@3.15/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship

@@ -2,8 +2,9 @@
 I have been using VIM and TMUX for some time and this is a testament of what I use. My terminal is so easy to setup, follow this simple steps and you are good.
 
 ## Installation
+There are two ways to customize your terminal using this box settings
 
-### Using Bash
+### 1. Using Bash
 I have written a simple bash script which can automate the process but you have to do some things also
 
 ```bash
@@ -33,7 +34,7 @@ $ cd ~/.vim/bundle/YouCompleteMe
 $ ./install.py
 ```
 
-### Copying Files
+### 2. Copying Files
 ```bash
 $ git clone https://github.com/Danielshow/BoxSetting
 $ cd BoxSetting
@@ -59,7 +60,7 @@ $ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/t
 - Open Vim and run `:PluginInstall`
 - Hurray 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
 
-### Update
+### 🧘‍♂️🧘‍♂️Update
 I added an undo script if you want to go back to your default settings
 ```shell
 $ cd Boxsettings

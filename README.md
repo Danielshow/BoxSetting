@@ -74,7 +74,7 @@ Voila!!!!!🏵
 
 ## Tutorial
 I wrote a tutorial for setting it up
-- [tutorial](https://danielshow.dev/blogs/setting-up-vim-tmux-iterm-and-oh-my-zsh-a-better-workflow)
+- [tutorial](https://danielshow.dev/posts/setting-up-vim-tmux-iterm-and-oh-my-zsh-a-better-workflow/)
 
 
 ## Contribution

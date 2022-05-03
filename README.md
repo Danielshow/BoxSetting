@@ -79,3 +79,7 @@ I wrote a tutorial for setting it up
 
 ## Contribution
 You can raise a PR to fix typo or add more configurations
+
+
+## Support
+[Buy me a Coffee](https://www.buymeacoffee.com/danielshow)
